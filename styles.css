@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
@@ -6,29 +7,35 @@ body {
     padding: 0;
 }
 
+/* Hero Section with Animated Gradient */
 .hero-section {
-    background: url('hero-bg.jpg') no-repeat center center;
-    background-size: cover;
+    background: linear-gradient(45deg, #007bff, #ff7f50, #32cd32, #6a5acd);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
     color: white;
     padding: 100px 0;
     text-shadow: 2px 2px 4px #000000;
 }
 
-.container {
-    color: #0d151d;
+/* Keyframes for Gradient Animation */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
+/* Navbar */
 .navbar {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ffffff !important;
-}
-
-.nav-link {
+.navbar-brand, .nav-link {
     color: #ffffff !important;
 }
 
@@ -37,6 +44,7 @@ body {
     text-decoration: underline;
 }
 
+/* Card Styles with Glow Effect */
 .card {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -46,16 +54,76 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-.card-title {
-    font-weight: bold;
-    color: #007bff;
+.custom-card {
+    padding: 20px;
+    border-radius: 1rem;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card-text {
-    font-size: 0.9rem;
-    color: #333;
+.custom-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
+/* Button with Ripple and Glow Effect */
+#contact .btn-primary {
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#contact .btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.4);
+    background-color: #0056b3;
+}
+
+#contact .btn-primary::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+}
+
+#contact .btn-primary:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Section Title with Glow Effect */
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #007bff;
+    color: white;
+    border-radius: 50px;
+    animation: fadeIn 2s ease-in-out;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+/* Form Control with Glow Effect */
+#contact .form-control {
+    border-radius: 50px;
+    padding: 0.75rem 1.25rem;
+    transition: box-shadow 0.3s ease;
+}
+
+#contact .form-control:focus {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+/* Footer Styles */
 footer {
     background-color: #007bff;
     color: white;
@@ -103,175 +171,7 @@ footer hr {
     }
 }
 
-
-#contact .form-control {
-    border-radius: 0.25rem;
-    box-shadow: none;
-    border: 1px solid #ced4da;
-    transition: border-color 0.2s ease;
-}
-
-#contact .form-control:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
-}
-
-#contact .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-#contact .btn-primary:hover {
-    background-color: #0056b3;
-    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
-}
-
-/* Custom Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.hero-section h1,
-.hero-section p {
-    animation: fadeIn 2s ease-in-out;
-}
-
-/* Additional Customizations */
-.section-title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    position: relative;
-    display: inline-block;
-    padding-bottom: 0.3rem;
-    color: #007bff;
-}
-
-.section-title::after {
-    content: '';
-    width: 50%;
-    height: 3px;
-    background: #007bff;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-.custom-card {
-    padding: 20px;
-    border-radius: 0.5rem;
-    background: #ffffff;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.custom-card img {
-    border-radius: 0.5rem 0.5rem 0 0;
-}
-
-.custom-card .card-body {
-    padding: 20px;
-    text-align: center;
-}
-
-.custom-card .card-title {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-.custom-card .card-text {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero-section {
-        padding: 50px 0;
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-    }
-}
-
-
-/* Bubble-like Structure for Cards */
-.custom-card {
-    border-radius: 1rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.custom-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-}
-
-/* Bubble-like Structure for Buttons */
-#contact .btn-primary {
-    border-radius: 50px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-#contact .btn-primary:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.4);
-}
-
-/* Bubble-like Structure for Section Titles */
-.section-title {
-    position: relative;
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background: #007bff;
-    color: white;
-    border-radius: 50px;
-    animation: fadeIn 2s ease-in-out;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: #007bff;
-    border-radius: 50%;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* Custom Bubble Animations */
-@keyframes bubble {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-.custom-card,
-#contact .btn-primary {
-    animation: bubble 3s infinite;
-}
-
-/* Enhancing Form Inputs with Bubble Structure */
-#contact .form-control {
-    border-radius: 50px;
-    padding: 0.75rem 1.25rem;
-    transition: box-shadow 0.3s ease;
-}
-
-#contact .form-control:focus {
-    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-}
-
-/* Adding Bubble Background Effect */
+/* Bubble Background */
 .bubble-background {
     position: absolute;
     top: 0;
@@ -340,4 +240,99 @@ footer hr {
         transform: translateY(-800px);
         opacity: 0;
     }
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes bubble {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.custom-card,
+#contact .btn-primary {
+    animation: bubble 3s infinite;
+}
+
+/* Parallax Scrolling */
+.parallax {
+    background-image: url('parallax-bg.jpg');
+    min-height: 400px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Additional Effects for About Us */
+#about {
+    background: #ffffff;
+    padding: 50px 0;
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+#about .lead {
+    border: 1px solid #dddddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#about .lead:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Additional Effects for Members */
+#members {
+    padding: 50px 0;
+}
+
+#members .card.custom-card {
+    transition: all 0.3s ease-in-out;
+}
+
+#members .card.custom-card:hover {
+    transform: scale(1.1) translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+#members .card.custom-card img {
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+#members .card.custom-card img:hover {
+    transform: scale(1.05);
+}
+
+.card-title {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.custom-card .card-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.custom-card .card-text {
+    font-size: 0.9rem;
+    color: #666;
 }
